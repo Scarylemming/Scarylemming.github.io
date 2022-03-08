@@ -517,20 +517,20 @@ img {
 	background-color: #620031;
 }
 /*----------------------------------------body-styles---------------------------------------*/
-#body.about .header {
-	background: url(../images/bg-about.jpg) no-repeat center top #000000;
+#body.latex .header {
+	background: url(../images/bg-latex.jpg) no-repeat center top #000000;
 	margin: 0;
 	min-height: 455px;
 	padding: 0;
 	width: 100%;
 }
-#body.about .header div, #body .header div {
+#body.latex .header div, #body .header div {
 	margin: 0 auto;
 	max-width: 960px;
 	overflow: hidden;
 	padding: 65px 0 40px;
 }
-#body.about .header div h1, #body .header div h1 {
+#body.latex .header div h1, #body .header div h1 {
 	color: #FFFFFF;
 	display: block;
 	font-family: audiowide-regular-webfont;
@@ -543,7 +543,7 @@ img {
 	text-transform: uppercase;
 	width: 940px;
 }
-#body.about .header div h2 {
+#body.latex .header div h2 {
 	color: #FFFFFF;
 	display: block;
 	font-family: audiowide-regular-webfont;
@@ -556,7 +556,7 @@ img {
 	text-transform: uppercase;
 	width: 820px;
 }
-#body.about .header div p {
+#body.latex .header div p {
 	color: #ffffff;
 	display: block;
 	font-family: Arial;
@@ -568,7 +568,7 @@ img {
 	text-align: center;
 	width: 820px;
 }
-#body.about .header div p a {
+#body.latex .header div p a {
 	color: #ffffff;
 	font-family: Arial;
 	font-size: 18px;
@@ -578,10 +578,10 @@ img {
 	padding: 0;
 	text-decoration: underline;
 }
-#body.about .header div p a:hover {
+#body.latex .header div p a:hover {
 	color: #a3a3a3;
 }
-#body.about .body {
+#body.latex .body {
 	background-color: #620031;
 	margin: 0;
 	min-height: 253px;
@@ -589,13 +589,13 @@ img {
 	padding: 0;
 	width: 100%;
 }
-#body.about .body div {
+#body.latex .body div {
 	margin: 0 auto;
 	max-width: 940px;
 	overflow: hidden;
 	padding: 36px 10px 35px;
 }
-#body.about .body div h2 {
+#body.latex .body div h2 {
 	color: #A3A3A3;
 	float: left;
 	font-family: audiowide-regular-webfont;
@@ -608,7 +608,7 @@ img {
 	text-transform: uppercase;
 	width: 620px;
 }
-#body.about .body div p {
+#body.latex .body div p {
 	color: #ffffff;
 	display: block;
 	float: left;
@@ -621,7 +621,7 @@ img {
 	text-align: left;
 	width: 620px;
 }
-#body.about .body div p a {
+#body.latex .body div p a {
 	color: #ffffff;
 	font-family: Arial;
 	font-size: 14px;
@@ -631,30 +631,30 @@ img {
 	padding: 0;
 	text-decoration: underline;
 }
-#body.about .body div p a:hover {
+#body.latex .body div p a:hover {
 	color: #a3a3a3;
 }
-#body.about .body div img {
+#body.latex .body div img {
 	display: block;
 	float: right;
 	margin: 0;
 	padding: 0;
 	width: auto;
 }
-#body.about .footer {
+#body.latex .footer {
 	background-color: #000000;
 	margin: 0;
 	min-height: 366px;
 	padding: 0;
 	width: 100%;
 }
-#body.about .footer div {
+#body.latex .footer div {
 	margin: 0 auto;
 	overflow: hidden;
 	padding: 79px 0 0 10px;
 	width: 950px;
 }
-#body.about .footer div h2 {
+#body.latex .footer div h2 {
 	color: #A3A3A3;
 	float: right;
 	font-family: audiowide-regular-webfont;
@@ -667,7 +667,7 @@ img {
 	text-transform: uppercase;
 	width: 557px;
 }
-#body.about .footer div p {
+#body.latex .footer div p {
 	color: #ffffff;
 	display: block;
 	float: right;
@@ -680,7 +680,7 @@ img {
 	text-align: left;
 	width: 557px;
 }
-#body.about .footer div p a {
+#body.latex .footer div p a {
 	color: #ffffff;
 	font-family: Arial;
 	font-size: 18px;
@@ -690,30 +690,30 @@ img {
 	padding: 0;
 	text-decoration: underline;
 }
-#body.about .footer div p a:hover {
+#body.latex .footer div p a:hover {
 	color: #a3a3a3;
 }
-#body.about .footer div img {
+#body.latex .footer div img {
 	float: left;
 	display: block;
 	margin: 0;
 	padding: 0;
 	width: auto;
 }
-#body.about .section {
+#body.latex .section {
 	background-color: #3c0f38;
 	margin: 0;
 	min-height: 234px;
 	padding: 0;
 	width: auto;
 }
-#body.about .section div {
+#body.latex .section div {
 	margin: 0 auto;
 	max-width: 960px;
 	overflow: hidden;
 	padding: 58px 0 55px;
 }
-#body.about .section div h2 {
+#body.latex .section div h2 {
 	color: #A3A3A3;
 	display: block;
 	font-family: audiowide-regular-webfont;
@@ -726,7 +726,7 @@ img {
 	text-transform: uppercase;
 	width: 780px;
 }
-#body.about .section div p {
+#body.latex .section div p {
 	color: #ffffff;
 	display: block;
 	font-family: Arial;
@@ -738,7 +738,7 @@ img {
 	text-align: center;
 	width: 780px;
 }
-#body.about .section div p a {
+#body.latex .section div p a {
 	color: #ffffff;
 	font-family: Arial;
 	font-size: 14px;
@@ -748,7 +748,7 @@ img {
 	padding: 0;
 	text-decoration: underline;
 }
-#body.about .section div p a:hover {
+#body.latex .section div p a:hover {
 	color: #a3a3a3;
 }
 #body .header {
