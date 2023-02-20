@@ -2,42 +2,128 @@
 <html>
 <head>
 	<title>Jass Score Counter</title>
+	<style>
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 20px;
+		}
+
+		label {
+			margin-right: 10px;
+		}
+
+		input[type="number"] {
+			width: 60px;
+			margin-right: 10px;
+		}
+
+		button {
+			margin-right: 10px;
+		}
+
+		#score {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 20px;
+		}
+
+		#undo {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+		}
+	</style>
 </head>
 <body>
 	<h1>Jass Score Counter</h1>
 
+	<button id="undo" onclick="undo()">Undo</button>
+
 	<form>
-		<label for="team1">Team 1:</label>
-		<input type="number" id="team1" name="team1" min="0" value="0">
+		<div>
+			<label for="team1name">Team 1:</label>
+			<input type="text" id="team1name" name="team1name" value="Team 1">
+		</div>
+		<div>
+			<label for="team1score">Score:</label>
+			<input type="text" id="team1score" name="team1score" value="0">
+			<button onclick="addBonusPoints('team1score', 20)">Stockr (20)</button>
+			<button onclick="addBonusPoints('team1score', 20)">20</button>
+			<button onclick="addBonusPoints('team1score', 50)">50</button>
+			<button onclick="addBonusPoints('team1score', 100)">100</button>
+			<button onclick="addBonusPoints('team1score', 150)">150</button>
+			<button onclick="addBonusPoints('team1score', 200)">200</button>
+		</div>
 
-		<label for="team2">Team 2:</label>
-		<input type="number" id="team2" name="team2" min="0" value="0">
+		<div>
+			<label for="team2name">Team 2:</label>
+			<input type="text" id="team2name" name="team2name" value="Team 2">
+		</div>
+		<div>
+			<label for="team2score">Score:</label>
+			<input type="text" id="team2score" name="team2score" value="0">
+			<button onclick="addBonusPoints('team2score', 20)">Stockr (20)</button>
+			<button onclick="addBonusPoints('team2score', 20)">20</button>
+			<button onclick="addBonusPoints('team2score', 50)">50</button>
+			<button onclick="addBonusPoints('team2score', 100)">100</button>
+			<button onclick="addBonusPoints('team2score', 150)">150</button>
+			<button onclick="addBonusPoints('team2score', 200)">200</button>
+		</div>
 
-		<input type="button" value="Submit" onclick="calculateScore()">
+		<button type="button" onclick="calculateScore()">Submit</button>
 	</form>
 
-	<h2>Score</h2>
-	<p>Team 1: <span id="team1score">0</span></p>
-	<p>Team 2: <span id="team2score">0</span></p>
+	<div id="score">
+		<p id="team1">Team 1: <span id="team1total">0</span></p>
+		<p id="team2">Team 2: <span id="team2total">0</span></p>
+	</div>
 
 	<script>
-		function calculateScore() {
-			// Get the values entered by the user
-			var team1score = parseInt(document.getElementById("team1").value);
-			var team2score = parseInt(document.getElementById("team2").value);
+		var team1scoreHistory = [0];
+		var team2scoreHistory = [0];
 
-			// Calculate the total score for each team
-			var totalTeam1Score = parseInt(document.getElementById("team1score").innerText) + team1score;
-			var totalTeam2Score = parseInt(document.getElementById("team2score").innerText) + team2score;
+    function calculateScore() {
+        var team1score = parseInt(document.getElementById("team1score").value);
+        var team2score = parseInt(document.getElementById("team2score").value);
 
-			// Update the scores on the page
-			document.getElementById("team1score").innerText = totalTeam1Score;
-			document.getElementById("team2score").innerText = totalTeam2Score;
+		// Add current scores to history
+		team1scoreHistory.push(team1score);
+		team2scoreHistory.push(team2score);
 
-			// Reset the input fields
-			document.getElementById("team1").value = 0;
-			document.getElementById("team2").value = 0;
-		}
+		// Calculate total score for each team
+		var team1total = team1scoreHistory.reduce((a, b) => a + b, 0);
+		var team2total = team2scoreHistory.reduce((a, b) => a + b, 0);
+
+		// Update total scores on page
+		document.getElementById("team1total").innerHTML = team1total;
+		document.getElementById("team2total").innerHTML = team2total;
+
+		// Reset input fields
+		document.getElementById("team1score").value = 0;
+		document.getElementById("team2score").value = 0;
+	}
+
+	function addBonusPoints(elementId, bonusPoints) {
+		var currentScore = parseInt(document.getElementById(elementId).value);
+		var newScore = currentScore + bonusPoints;
+		document.getElementById(elementId).value = newScore;
+	}
+
+	function undo() {
+		team1scoreHistory.pop();
+		team2scoreHistory.pop();
+
+		// Recalculate total score for each team
+		var team1total = team1scoreHistory.reduce((a, b) => a + b, 0);
+		var team2total = team2scoreHistory.reduce((a, b) => a + b, 0);
+
+		// Update total scores on page
+		document.getElementById("team1total").innerHTML = team1total;
+		document.getElementById("team2total").innerHTML = team2total;
+	}
 	</script>
 </body>
 </html>
