@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jass Score Counter</title>
+</head>
+<body>
+	<h1>Jass Score Counter</h1>
+
+	<form>
+		<label for="team1">Team 1:</label>
+		<input type="number" id="team1" name="team1" min="0" value="0">
+
+		<label for="team2">Team 2:</label>
+		<input type="number" id="team2" name="team2" min="0" value="0">
+
+		<input type="button" value="Submit" onclick="calculateScore()">
+	</form>
+
+	<h2>Score</h2>
+	<p>Team 1: <span id="team1score">0</span></p>
+	<p>Team 2: <span id="team2score">0</span></p>
+
+	<script>
+		function calculateScore() {
+			// Get the values entered by the user
+			var team1score = parseInt(document.getElementById("team1").value);
+			var team2score = parseInt(document.getElementById("team2").value);
+
+			// Calculate the total score for each team
+			var totalTeam1Score = parseInt(document.getElementById("team1score").innerText) + team1score;
+			var totalTeam2Score = parseInt(document.getElementById("team2score").innerText) + team2score;
+
+			// Update the scores on the page
+			document.getElementById("team1score").innerText = totalTeam1Score;
+			document.getElementById("team2score").innerText = totalTeam2Score;
+
+			// Reset the input fields
+			document.getElementById("team1").value = 0;
+			document.getElementById("team2").value = 0;
+		}
+	</script>
+</body>
+</html>
