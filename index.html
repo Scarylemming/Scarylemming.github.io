@@ -1,213 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Jass Score Counter</title>
-	<style>
-		form {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			margin-top: 20px;
-		}
-
-		label {
-			margin-right: 10px;
-		}
-
-		input[type="number"] {
-			width: 60px;
-			margin-right: 10px;
-		}
-
-		button {
-			margin-right: 10px;
-		}
-
-		#score {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			margin-top: 20px;
-		}
-
-		#undo {
-			position: absolute;
-			top: 10px;
-			right: 10px;
-		}
-
-        .container {
-        max-width: 800px;
-        margin: auto;
-        padding: 20px;
-        text-align: center;
-        }
-
-        h1 {
-        font-size: 48px;
-        margin-top: 0;
-        }
-
-        h2 {
-        font-size: 36px;
-        }
-
-        .score-row {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px;
-        }
-
-        .score-row input {
-        width: 80px;
-        font-size: 24px;
-        text-align: center;
-        padding: 5px;
-        }
-
-        .score-row button {
-        width: 80px;
-        font-size: 18px;
-        padding: 5px;
-        }
-
-        .total {
-        font-size: 36px;
-        margin-top: 20px;
-        }
-
-        .undo {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        font-size: 24px;
-        padding: 10px;
-        }
-
-	</style>
+    <meta charset="UTF-8">
+    <title>Jass Score Counter</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<h1>Jass Score Counter</h1>
-
-	<button id="undo" onclick="undo()">Undo</button>
-
-	<form>
-		<div>
-			<label for="team1name">Team 1:</label>
-			<input type="text" id="team1name" name="team1name" value="Team 1">
-		</div>
-		<div>
-			<label for="team1score">Score:</label>
-			<input type="text" id="team1score" name="team1score" value="0">
-			<button type="button" onclick="addBonusPoints('team1score', 20)">Stockr (20)</button>
-			<button type="button" onclick="addBonusPoints('team1score', 20)">20</button>
-			<button type="button" onclick="addBonusPoints('team1score', 50)">50</button>
-			<button type="button" onclick="addBonusPoints('team1score', 100)">100</button>
-			<button type="button" onclick="addBonusPoints('team1score', 150)">150</button>
-			<button type="button" onclick="addBonusPoints('team1score', 200)">200</button>
-		</div>
-
-		<div>
-			<label for="team2name">Team 2:</label>
-			<input type="text" id="team2name" name="team2name" value="Team 2">
-		</div>
-		<div>
-			<label for="team2score">Score:</label>
-			<input type="text" id="team2score" name="team2score" value="0">
-			<button type="button" onclick="addBonusPoints('team2score', 20)">Stockr (20)</button>
-			<button type="button" onclick="addBonusPoints('team2score', 20)">20</button>
-			<button type="button" onclick="addBonusPoints('team2score', 50)">50</button>
-			<button type="button" onclick="addBonusPoints('team2score', 100)">100</button>
-			<button type="button" onclick="addBonusPoints('team2score', 150)">150</button>
-			<button type="button" onclick="addBonusPoints('team2score', 200)">200</button>
-		</div>
-
-		<button type="button" onclick="calculateScore()">Submit</button>
-        <button type="button" onclick="calculate()">Calculate</button>
-	</form>
-
-	<div id="score">
-		<p id="team1">Team 1: <span id="team1total">0</span></p>
-		<p id="team2">Team 2: <span id="team2total">0</span></p>
-	</div>
-
-	<script>
-		var team1scoreHistory = [0];
-		var team2scoreHistory = [0];
-
-    function calculateScore() {
-        var team1score = parseInt(document.getElementById("team1score").value);
-        var team2score = parseInt(document.getElementById("team2score").value);
-
-		// Add current scores to history
-		team1scoreHistory.push(team1score);
-		team2scoreHistory.push(team2score);
-
-		// Calculate total score for each team
-		var team1total = team1scoreHistory.reduce((a, b) => a + b, 0);
-		var team2total = team2scoreHistory.reduce((a, b) => a + b, 0);
-
-		// Update total scores on page
-		document.getElementById("team1total").innerHTML = team1total;
-		document.getElementById("team2total").innerHTML = team2total;
-
-		// Reset input fields
-		document.getElementById("team1score").value = 0;
-		document.getElementById("team2score").value = 0;
-	}
-
-    function addBonusPoints(teamScoreId, bonusPoints) {
-
-        if (teamScoreId == "team1score") {
-            console.log("Team 1");
-            var team1score = bonusPoints;
-            team1scoreHistory.push(team1score);
-            var team1total = team1scoreHistory.reduce((a, b) => a + b, 0);
-            document.getElementById("team1total").innerHTML = team1total;
-        } else {
-            console.log("Team 2");
-            var team2score = bonusPoints;
-            team2scoreHistory.push(bonusPoints);
-            var team2total = team2scoreHistory.reduce((a, b) => a + b, 0);
-            document.getElementById("team2total").innerHTML = team2total;
-        }
-     }
-
-	function undo() {
-		team1scoreHistory.pop();
-		team2scoreHistory.pop();
-
-		// Recalculate total score for each team
-		var team1total = team1scoreHistory.reduce((a, b) => a + b, 0);
-		var team2total = team2scoreHistory.reduce((a, b) => a + b, 0);
-
-		// Update total scores on page
-		document.getElementById("team1total").innerHTML = team1total;
-		document.getElementById("team2total").innerHTML = team2total;
-	}
-    function calculate() {
-        const team1ScoreInput = document.getElementById("team1score");
-        const team2ScoreInput = document.getElementById("team2score");
-        const team1Score = parseInt(team1ScoreInput.value, 10);
-        const team2Score = parseInt(team2ScoreInput.value, 10);
-
-        if (!isNaN(team1Score) && team1Score > 0 && team2Score === 0) {
-            const team2ScoreResult = 157 - team1Score;
-            addBonusPoints("team1score", team1Score);
-            addBonusPoints("team2score", team2ScoreResult);
-            
-        } else if (!isNaN(team2Score) && team2Score > 0 && team1Score === 0) {
-            const team1ScoreResult = 157 - team2Score;
-            addBonusPoints("team2score", team2Score);
-            addBonusPoints("team1score", team1ScoreResult);
-            
-        } else {
-            alert("Please enter a score for one team only");
-        }
-        document.getElementById("team1score").value = 0;
-		document.getElementById("team2score").value = 0;
-    }
-
-	</script>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">Jass Score Counter</h1>
+        </div>
+        <div class="teams">
+            <div class="team">
+                <h2>Team 1</h2>
+                <form>
+                    <label for="team1score">Score:</label>
+                    <input type="text" id="team1score" class="score-input" value="0">
+                    <button type="button" class="btn bonus-btn" onclick="addPoints('team1score',20)">+20 bonus</button>
+                    <button type="button" class="btn bonus-btn" onclick="addPoints('team1score',50)">+50 bonus</button>
+                    <button type="button" class="btn bonus-btn" onclick="addPoints('team1score',100)">+100 bonus</button>
+                    <button type="button" class="btn bonus-btn" onclick="addPoints('team1score',150)">+150 bonus</button>
+                    <button type="button" class="btn bonus-btn" onclick="addPoints('team1score',200)">+200 bonus</button>
+                </form>
+                <div class="total-score" id="team1total">Total: 0</div>
+            </div>
+            <div class="team">
+                <h2>Team 2</h2>
+                <form>
+                    <label for="team2score">Score:</label>
+                    <input type="text" id="team2score" class="score-input" value="0">
+                    <button type="button" class="btn bonus-btn" onclick="addPoints('team2score',20)">+20 bonus</button>
+                    <button type="button" class="btn bonus-btn" onclick="addPoints('team2score',50)">+50 bonus</button>
+                    <button type="button" class="btn bonus-btn" onclick="addPoints('team2score',100)">+100 bonus</button>
+                    <button type="button" class="btn bonus-btn" onclick="addPoints('team2score',150)">+150 bonus</button>
+                    <button type="button" class="btn bonus-btn" onclick="addPoints('team2score',200)">+200 bonus</button>
+                </form>
+                <div class="total-score" id="team2total">Total: 0</div>
+            </div>
+        </div>
+        <div class="buttons">
+            <button type="button" class="btn calculate-btn" onclick="calculate()">Calculate</button>
+            <button type="button" class="btn undo-btn" onclick="undo()">Undo</button>
+        </div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
+
+

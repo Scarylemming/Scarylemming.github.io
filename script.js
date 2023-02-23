@@ -23,7 +23,7 @@ function calculateScore() {
     document.getElementById("team2score").value = 0;
 }
 
-function addBonusPoints(teamScoreId, bonusPoints) {
+function addPoints(teamScoreId, bonusPoints) {
 
     if (teamScoreId == "team1score") {
         console.log("Team 1");
@@ -60,13 +60,13 @@ function calculate() {
 
     if (!isNaN(team1Score) && team1Score > 0 && team2Score === 0) {
         const team2ScoreResult = 157 - team1Score;
-        addBonusPoints("team1score", team1Score);
-        addBonusPoints("team2score", team2ScoreResult);
+        addPoints("team1score", team1Score);
+        addPoints("team2score", team2ScoreResult);
         
     } else if (!isNaN(team2Score) && team2Score > 0 && team1Score === 0) {
         const team1ScoreResult = 157 - team2Score;
-        addBonusPoints("team2score", team2Score);
-        addBonusPoints("team1score", team1ScoreResult);
+        addPoints("team2score", team2Score);
+        addPoints("team1score", team1ScoreResult);
         
     } else {
         alert("Please enter a score for one team only");
