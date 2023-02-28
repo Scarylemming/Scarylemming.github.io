@@ -1,6 +1,7 @@
-
 var team1scoreHistory = [0];
 var team2scoreHistory = [0];
+var team1Name = "";
+var team2Name = "";
 
 function calculateScore() {
     var team1score = parseInt(document.getElementById("team1score").value);

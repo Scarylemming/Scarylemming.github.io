@@ -1,4 +1,4 @@
-<style>
+<style>  
     form {
         display: flex;
         flex-direction: column;
@@ -32,12 +32,34 @@
         right: 10px;
     }
 
+    /* CSS for screens larger than 600px */
     .container {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-    text-align: center;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 50px;
     }
+    
+    /* CSS for screens smaller than or equal to 600px */
+    @media (max-width: 600px) {
+        /* Make the container a column layout */
+        .container {
+        flex-direction: column;
+        justify-content: flex-start;
+        }
+    
+        /* Center the title and add more margin */
+        h1 {
+        text-align: center;
+        margin-top: 30px;
+        }
+    
+        /* Add more margin between the teams */
+        .team {
+        margin-top: 20px;
+        }
+    }
+  
 
     h1 {
     font-size: 48px;
@@ -72,12 +94,10 @@
     margin-top: 20px;
     }
 
-    .undo {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 24px;
-    padding: 10px;
+    .undo-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
     }
-
 </style>
+

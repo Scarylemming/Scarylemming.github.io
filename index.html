@@ -10,9 +10,17 @@
         <div class="header">
             <h1 class="title">Jass Score Counter</h1>
         </div>
+        <div class = "buttons">
+            <button type="button" class="btn undo-btn" onclick="undo()">Undo</button>
+        </div>
         <div class="teams">
             <div class="team">
-                <h2>Team 1</h2>
+                <h2>
+                    Team 1
+                    <input type="text" id="team1name" class="score-input" value="Joueur 1">
+                    <input type="text" id="team1name" class="score-input" value="Joueur 2">
+                </h2>
+
                 <form>
                     <label for="team1score">Score:</label>
                     <input type="text" id="team1score" class="score-input" value="0">
@@ -25,7 +33,12 @@
                 <div class="total-score" id="team1total">Total: 0</div>
             </div>
             <div class="team">
-                <h2>Team 2</h2>
+                <h2>
+                    Team 2
+                    <input type="text" id="team1name" class="score-input" value="Joueur 3">
+                    <input type="text" id="team1name" class="score-input" value="Joueur 4">
+                </h2>
+
                 <form>
                     <label for="team2score">Score:</label>
                     <input type="text" id="team2score" class="score-input" value="0">
@@ -40,7 +53,6 @@
         </div>
         <div class="buttons">
             <button type="button" class="btn calculate-btn" onclick="calculate()">Calculate</button>
-            <button type="button" class="btn undo-btn" onclick="undo()">Undo</button>
         </div>
     </div>
     <script type="text/javascript" src="script.js"></script>
