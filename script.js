@@ -3,6 +3,9 @@ var team2scoreHistory = [0];
 var team1Name = "";
 var team2Name = "";
 
+Cookies.set("Name1", "true")
+
+
 function calculateScore() {
     var team1score = parseInt(document.getElementById("team1score").value);
     var team2score = parseInt(document.getElementById("team2score").value);
@@ -75,3 +78,5 @@ function calculate() {
     document.getElementById("team1score").value = 0;
     document.getElementById("team2score").value = 0;
 }
+
+
