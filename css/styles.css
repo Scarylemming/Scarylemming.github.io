@@ -1,0 +1,79 @@
+/* CSS styles for the banner */
+
+.banner {
+    background-color: rgba(255, 255, 255, 0); /* Background color of the banner */
+    color: #fff; /* Text color */
+    text-align: center; /* Center-align text */
+    line-height: 1rem;
+    font-size: 0px; /* Font size of text */
+    padding: 0px;
+    border-radius: 10px;
+}
+
+.block {
+    text-align: center;
+    background-color: #fff;
+    color: #333;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: clamp(5px, 2vw, 30px);
+    padding-bottom: clamp(5px, 2vw, 30px);
+    border-radius: 5px;
+    font-size: clamp(0.5rem, 0.2rem + 0.5vw, 1.25rem);
+    display: inline-block;
+    margin-top: clamp(2.5px, 1vw, 30px);
+    margin-bottom: clamp(2.5px, 1vw, 30px);
+    margin-right: clamp(2.5px, 1vw, 30px);
+    margin-left: clamp(2.5px, 1vw, 30px);
+}
+
+@media (max-width: 570px) {
+    body {
+
+    }
+}
+
+.block:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    
+}
+
+.block-left:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0;
+    background-image: url("../images/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 10%;
+}
+
+.centered-contact {
+    text-align: center; 
+    font-size: 40px;
+}
+
+.centered-contact a:hover {
+    color: red;
+}
+
+.centered-title {
+    text-align: center;
+    margin-top: 30px;
+}
+
+h3.centered-contact a {
+    text-decoration: none; /* Remove underline */
+}
+
+html  {
+    font-size: 16px;
+}
+
+p {
+    font-size: 15px;
+}
