@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en, fr">
+    <title>PAGE_TITLE - Brass Band</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <header>
+        <img src="../images/logo-dark.png" alt="Brass Band Logo" class="logo" id="logo-dark">
+        <img src="../images/logo-light.png" alt="Brass Band Logo" class="logo" id="logo-light" style="display: none;">
+        <h1 data-en="Contact us !" data-fr="Contactez-nous !">Contact us !</h1>
+        <div class="toggle-buttons">
+            <button class="theme-toggle" id="theme-toggle" data-light="Light Theme" data-dark="Dark Theme">Light Theme</button>
+            <button class="language-toggle" id="language-toggle">
+                <img src="../images/flag-fr.png" alt="French Flag" id="flag-fr" style="display: none;">
+                <img src="../images/flag-en.png" alt="English Flag" id="flag-en">
+            </button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html" data-en="Home" data-fr="Accueil">Home</a></li>
+                <li><a href="latest-tunes.html" data-en="Latest Tunes" data-fr="Dernières Chansons">Latest Tunes</a></li>
+                <li><a href="history.html" data-en="History" data-fr="Histoire">History</a></li>
+                <li><a href="next-concerts.html" data-en="Next Concerts" data-fr="Prochains Concerts">Next Concerts</a></li>
+                <li><a href="about.html" data-en="About Us" data-fr="À Propos de Nous">About Us</a></li>
+                <li><a href="events.html" data-en="Events" data-fr="Événements">Events</a></li>
+                <li><a href="contact.html" data-en="Contact" data-fr="Contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Page specific content goes here -->
+    <main>
+        <section class="contact">
+            <h2 data-en="Contact Us" data-fr="Contactez-Nous">Contact Us</h2>
+            <div class="contact-container">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name" data-en="Name" data-fr="Nom">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" data-en="Email" data-fr="Email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-en="Message" data-fr="Message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" data-en="Send Message" data-fr="Envoyer le Message">Send Message</button>
+                </form>
+                <div class="contact-info">
+                    <h3 data-en="Other Ways to Reach Us" data-fr="Autres Façons de Nous Contacter">Other Ways to Reach Us</h3>
+                    <p data-en="Email: info@brassband.com" data-fr="Email: info@brassband.com">Email: info@brassband.com</p>
+                    <p data-en="Phone: +1 234 567 890" data-fr="Téléphone: +1 234 567 890">Phone: +1 234 567 890</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p data-en="&copy; 2023 Brass Band. All rights reserved." data-fr="&copy; 2023 Brass Band. Tous droits réservés.">&copy; 2023 Brass Band. All rights reserved.</p>
+    </footer>
+    <script src="../scripts/main.js"></script>
+</body>
+</html>
