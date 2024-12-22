@@ -239,3 +239,787 @@ nav {
 #about, #events {
     text-align: center;
 }
+
+/* Timeline Styles */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 2em auto;
+    padding: 20px;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #fff;
+    top: 0;
+    bottom: 0;
+    left: calc(70px + 25px);  /* Aligns with timeline buttons */
+    margin-left: -3px;
+    border-radius: 3px;
+}
+
+body.light-theme .timeline::after {
+    background-color: #333;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 70px;
+    margin-bottom: 3em;
+    padding-top: 30px; /* Add space for the year label */
+}
+
+.timeline-item::before {
+    content: attr(data-year);
+    position: absolute;
+    left: -30px;  /* Position on the timeline */
+    top: calc(50% - 40px); /* Raise date text to avoid overlap */
+    transform: translateY(-50%);
+    font-weight: bold;
+    color: #ff9f55;
+    font-size: 0.9em;
+    text-align: right;
+    background: #000;
+    padding: 5px;
+    border-radius: 4px;
+    z-index: 2;
+    width: 60px;
+    white-space: pre; /* Allows line breaks in data-year content */
+}
+
+body.light-theme .timeline-item::before {
+    background: #fff;
+    color: #d17000;
+}
+
+.timeline-item.current::before {
+    color: #4CAF50;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border: 4px solid #ff9f55;
+    border-radius: 50%;
+    left: 31px; /* Align horizontally with the timeline */
+    top: calc(50% + 15px); /* Adjust circle position to account for top padding */
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover::after {
+    background-color: #ff9f55;
+    transform: translateY(-50%) scale(1.2);
+}
+
+.timeline-content {
+    background: #333;
+    border-radius: 8px;
+    padding: 20px 30px;
+    position: relative;
+    margin-left: 20px;
+}
+
+body.light-theme .timeline-content {
+    background: #f5f5f5;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 10px 10px 10px 0;
+    border-style: solid;
+    border-color: transparent #333 transparent transparent;
+}
+
+body.light-theme .timeline-content::after {
+    border-color: transparent #f5f5f5 transparent transparent;
+}
+
+.timeline-item.current::after {
+    border-color: #4CAF50;
+    background-color: #4CAF50;
+}
+
+.timeline-item.founding-year::after {
+    border-width: 6px;
+    background-color: #ff9f55;
+}
+
+.musician-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 10px 0;
+}
+
+@media screen and (max-width: 600px) {
+    .timeline::after {
+        left: 45px;
+    }
+    
+    .timeline-item {
+        padding-left: 50px;
+        padding-top: 25px;
+    }
+    
+    .timeline-item::after {
+        left: 30px;
+        width: 25px;
+        height: 25px;
+        top: calc(50% + 12px);
+    }
+    
+    .timeline-item:nth-child(even) {
+        left: 0;
+    }
+    
+    .timeline-item:nth-child(odd)::after,
+    .timeline-item:nth-child(even)::after {
+        left: 15px;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-content::after {
+        border-width: 10px 10px 10px 0;
+        border-color: transparent #333 transparent transparent;
+        right: auto;
+        left: -10px;
+    }
+    
+    body.light-theme .timeline-item:nth-child(odd) .timeline-content::after {
+        border-color: transparent #f5f5f5 transparent transparent;
+    }
+}
+
+/* ...existing timeline styles... */
+
+.member-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    justify-content: center;
+    margin: 1em 0;
+}
+
+.member-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1em;
+    text-align: center;
+    width: 200px;
+    transition: transform 0.3s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+}
+
+body.light-theme .member-card {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.member-card h4 {
+    margin: 0.5em 0;
+    font-size: 1.1em;
+}
+
+.member-card .instrument {
+    color: #ff9f55;
+    margin: 0.3em 0;
+    font-style: italic;
+}
+
+body.light-theme .member-card .instrument {
+    color: #d17000;
+}
+
+.member-card .years {
+    font-size: 0.9em;
+    color: #888;
+}
+
+.timeline-item .timeline-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    .member-card {
+        width: 150px;
+    }
+    
+    .member-group {
+        gap: 1em;
+    }
+}
+
+/* ...existing styles... */
+
+.member-changes {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.arrivals, .departures {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1em;
+    border-radius: 8px;
+}
+
+body.light-theme .arrivals,
+body.light-theme .departures {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.arrivals h4 {
+    color: #4CAF50;
+}
+
+.departures h4 {
+    color: #f44336;
+}
+
+.member-card.founding {
+    border: 2px solid #ff9f55;
+}
+
+.member-card .status {
+    font-size: 0.8em;
+    color: #ff9f55;
+    font-weight: bold;
+    margin-top: 0.5em;
+}
+
+/* Make timeline flow top to bottom */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 4em;
+}
+
+.timeline::after {
+    left: 31px;
+}
+
+.timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+}
+
+.timeline-item:nth-child(even) {
+    left: 0;
+}
+
+.timeline-item::after {
+    left: 15px;
+}
+
+.timeline-content::after {
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #333 transparent transparent;
+    left: -10px;
+}
+
+body.light-theme .timeline-content::after {
+    border-color: transparent #f5f5f5 transparent transparent;
+}
+
+/* Updated Timeline Styles */
+.timeline-item.current .timeline-content {
+    background: rgba(76, 175, 80, 0.1);
+    border-left: 4px solid #4CAF50;
+}
+
+body.light-theme .timeline-item.current .timeline-content {
+    background: rgba(76, 175, 80, 0.05);
+}
+
+.member-card.active {
+    border: 2px solid #4CAF50;
+}
+
+.status.active {
+    color: #4CAF50;
+}
+
+.timeline-item.founding-year .timeline-content {
+    background: rgba(255, 159, 85, 0.1);
+    border-left: 4px solid #ff9f55;
+}
+
+body.light-theme .timeline-item.founding-year .timeline-content {
+    background: rgba(255, 159, 85, 0.05);
+}
+
+/* Enhance readability of years */
+.timeline-item h3 {
+    font-size: 1.4em;
+    margin-bottom: 1.5em;
+    color: #ff9f55;
+    text-align: center;
+    padding: 0.5em 0;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-item h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -10%;  /* Extend 10% beyond text on each side */
+    width: 120%;  /* Make line 20% wider than text */
+    height: 2px;
+    background-color: #ff9f55;
+}
+
+.timeline-item.current h3 {
+    color: #4CAF50;
+}
+
+.timeline-item.current h3::after {
+    background-color: #4CAF50;
+}
+
+body.light-theme .timeline-item h3::after {
+    background-color: #d17000;
+}
+
+body.light-theme .timeline-item.current h3::after {
+    background-color: #388E3C;
+}
+
+/* Add styles for history page main title */
+.history h2 {
+    text-align: center;
+    margin-bottom: 2em;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5em 0;
+}
+
+.history h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -10%;
+    width: 120%;
+    height: 2px;
+    background-color: #ff9f55;
+}
+
+body.light-theme .history h2::after {
+    background-color: #d17000;
+}
+
+/* Add some spacing between years */
+.timeline-item {
+    margin-bottom: 3em;
+}
+
+/* Make the current year stand out more */
+.timeline-item.current h3 {
+    color: #4CAF50;
+}
+
+body.light-theme .timeline-item.current h3 {
+    color: #388E3C;
+}
+
+/* ...existing styles... */
+
+/* Section-specific styling */
+.member-card.director {
+    border: 3px solid #ffd700;
+    background: rgba(255, 215, 0, 0.1);
+}
+
+.member-card.brass {
+    border-left: 3px solid #cd7f32;
+}
+
+.member-card.woodwind {
+    border-left: 3px solid #2e8b57;
+}
+
+.member-card.percussion {
+    border-left: 3px solid #4169e1;
+}
+
+/* Instrument section headers */
+.member-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    justify-content: center;
+    padding: 1em;
+    position: relative;
+}
+
+.member-card {
+    flex: 0 1 150px; /* Reduced from 200px */
+    padding: 0.8em;
+    margin: 0.3em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+body.light-theme .member-card {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.member-card h4 {
+    font-size: 1em;
+    margin: 0.3em 0;
+}
+
+.member-card .instrument {
+    font-size: 0.8em;
+    margin: 0.2em 0;
+}
+
+.member-card .status {
+    font-size: 0.7em;
+    margin-top: 0.2em;
+}
+
+.musician-photo {
+    width: 80px;  /* Reduced from 100px */
+    height: 80px;  /* Reduced from 100px */
+}
+
+.member-group {
+    gap: 0.8em;
+    padding: 0.5em;
+}
+
+.timeline-content {
+    padding: 15px 20px;
+}
+
+/* ...rest of existing styles... */
+
+/* New section group styles */
+.section-group {
+    margin: 1em 0;
+    padding: 0.8em 1.2em;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.section-group h4 {
+    font-size: 1.1em;
+    margin-bottom: 0.5em;
+    color: #fff;
+}
+
+.section-group p {
+    margin: 0.3em 0;
+    font-size: 0.95em;
+}
+
+/* Section-specific styling */
+.section-group.director {
+    border-left: 4px solid #ffd700;
+}
+
+.section-group.woodwind {
+    border-left: 4px solid #2e8b57;
+}
+
+.section-group.brass {
+    border-left: 4px solid #cd7f32;
+}
+
+.section-group.percussion {
+    border-left: 4px solid #4169e1;
+}
+
+/* Light theme adjustments */
+body.light-theme .section-group {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+body.light-theme .section-group h4 {
+    color: #000;
+}
+
+/* Timeline content adjustments */
+.timeline-content {
+    padding: 1.5em;
+}
+
+/* Remove old member card styles for this view */
+.member-group {
+    display: none;
+}
+
+/* ...rest of existing styles... */
+
+/* Updated section group styles */
+.section-group {
+    margin: 1em 0;
+    padding: 1em 1.2em;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.section-group:hover {
+    transform: translateX(10px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+body.light-theme .section-group {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+body.light-theme .section-group:hover {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+.section-group h4 {
+    font-size: 1.2em;
+    margin-bottom: 0.8em;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+body.light-theme .section-group h4 {
+    color: #000;
+}
+
+.section-group p {
+    margin: 0.5em 0;
+    font-size: 1em;
+    padding-left: 2em;
+}
+
+/* Remove old section-specific coloring */
+.section-group.director,
+.section-group.woodwind,
+.section-group.brass,
+.section-group.percussion {
+    border-left: none;
+}
+
+/* ...rest of existing styles... */
+
+/* Updated mobile responsive styles */
+@media screen and (max-width: 768px) {
+    .timeline {
+        padding: 20px 10px;
+        margin: 1em 5px;
+    }
+
+    .timeline-item {
+        padding-left: 50px;
+        padding-top: 25px;
+    }
+
+    .timeline-content {
+        padding: 15px;
+        margin-left: 10px;
+    }
+
+    .section-group {
+        padding: 0.8em;
+        margin: 0.8em 0;
+    }
+
+    .section-group p {
+        padding-left: 1em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    main {
+        padding: 0.5em;
+    }
+
+    .timeline {
+        padding: 15px 5px;
+        margin: 1em 2px;
+    }
+
+    .timeline-item {
+        padding-left: 40px;
+        padding-top: 25px;
+    }
+
+    .timeline-content {
+        padding: 12px;
+        margin-left: 5px;
+    }
+
+    .section-group {
+        padding: 0.6em;
+        margin: 0.6em 0;
+    }
+
+    .section-group p {
+        padding-left: 0.5em;
+        font-size: 0.9em;
+    }
+
+    .section-group h4 {
+        font-size: 1.1em;
+        margin-bottom: 0.5em;
+    }
+}
+
+/* ...rest of existing styles... */
+
+/* ...existing styles... */
+
+/* Update timeline item year text positioning */
+.timeline-item::before {
+    content: attr(data-year);
+    position: absolute;
+    left: -30px;  /* Position on the timeline */
+    top: calc(50% - 40px); /* Raise date text to avoid overlap */
+    transform: translateY(-50%);
+    font-weight: bold;
+    color: #ff9f55;
+    font-size: 0.9em;
+    text-align: right;
+    background: #000;
+    padding: 5px;
+    border-radius: 4px;
+    z-index: 2;
+    width: 60px;
+    white-space: pre; /* Allows line breaks in data-year content */
+}
+
+body.light-theme .timeline-item::before {
+    background: #fff;
+    color: #d17000;
+}
+
+.timeline-item.current::before {
+    color: #4CAF50;
+}
+
+/* Adjust timeline spacing */
+.timeline-item {
+    position: relative;
+    padding-left: 70px;  /* Give space for the year label */
+    margin-bottom: 3em;
+}
+
+.timeline::after {
+    left: 31px;
+    z-index: 1;  /* Ensure line stays behind the year labels */
+}
+
+@media screen and (max-width: 600px) {
+    .timeline-item::before {
+        left: -25px;
+        font-size: 0.8em;
+        width: 50px;
+        padding: 3px;
+    }
+
+    .timeline-item {
+        padding-left: 50px;
+    }
+}
+
+/* ...rest of existing styles... */
+
+/* Update timeline item padding to accommodate year text */
+.timeline-item {
+    padding-left: 140px;
+}
+
+@media screen and (max-width: 600px) {
+    .timeline-item {
+        padding-left: 80px;
+    }
+    
+    .timeline-item::before {
+        left: 10px;
+        font-size: 0.8em;
+        width: 35px;
+    }
+}
+
+/* ...rest of existing styles... */
+
+/* Guest Musicians Section Styles */
+.guest-musicians {
+    max-width: 800px;
+    margin: 2em auto;
+    padding: 0 20px;
+}
+
+.guest-musicians h3 {
+    text-align: center;
+    color: #ff9f55;
+    margin-bottom: 1em;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5em 0;
+}
+
+.guest-musicians h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -10%;
+    width: 120%;
+    height: 2px;
+    background-color: #ff9f55;
+}
+
+.section-group.guest {
+    border-left: 4px solid #9c27b0;  /* Purple accent for guest musicians */
+    margin-bottom: 2em;
+}
+
+body.light-theme .guest-musicians h3 {
+    color: #d17000;
+}
+
+body.light-theme .guest-musicians h3::after {
+    background-color: #d17000;
+}
+
+/* ...existing code... */
+.timeline-item .timeline-content h3 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    font-weight: bold;
+}
+.timeline-item .timeline-content p {
+    font-family: Georgia, serif;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+/* ...existing code... */
+
+/* ...rest of existing styles... */

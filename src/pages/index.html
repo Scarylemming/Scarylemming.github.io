@@ -5,34 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Language" content="en, fr">
     <title>Brass Band</title>
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
     <header>
         
-        <img src="images/logo-dark.png" alt="Brass Band Logo" class="logo" id="logo-dark">
-        <img src="images/logo-light.png" alt="Brass Band Logo" class="logo" id="logo-light" style="display: none;">
+        <img src="../images/logo-dark.png" alt="Brass Band Logo" class="logo" id="logo-dark">
+        <img src="../images/logo-light.png" alt="Brass Band Logo" class="logo" id="logo-light" style="display: none;">
         <h1 data-en="Welcome to Our Brass Band" data-fr="Bienvenue à Notre Brass Band">Welcome to Our Brass Band</h1>
         <div class="toggle-buttons">
             <button class="theme-toggle" id="theme-toggle" data-light="Light Theme" data-dark="Dark Theme">Light Theme</button>
             <button class="language-toggle" id="language-toggle">
-                <img src="images/flag-fr.png" alt="French Flag" id="flag-fr" style="display: none;">
-                <img src="images/flag-en.png" alt="English Flag" id="flag-en">
+                <img src="../images/flag-fr.png" alt="French Flag" id="flag-fr" style="display: none;">
+                <img src="../images/flag-en.png" alt="English Flag" id="flag-en">
             </button>
         </div>
         <nav>
             <ul>
                 <li><a href="index.html" data-en="Home" data-fr="Accueil">Home</a></li>
-                <li><a href="pages/latest-tunes.html" data-en="Latest Tunes" data-fr="Dernières Chansons">Latest Tunes</a></li>
-                <li><a href="pages/history.html" data-en="History" data-fr="Histoire">History</a></li>
-                <li><a href="pages/next-concerts.html" data-en="Next Concerts" data-fr="Prochains Concerts">Next Concerts</a></li>
-                <li><a href="pages/about.html" data-en="About Us" data-fr="À Propos de Nous">About Us</a></li>
-                <li><a href="pages/events.html" data-en="Events" data-fr="Événements">Events</a></li>
-                <li><a href="pages/contact.html" data-en="Contact" data-fr="Contact">Contact</a></li>
+                <li><a href="latest-tunes.html" data-en="Latest Tunes" data-fr="Dernières Chansons">Latest Tunes</a></li>
+                <li><a href="history.html" data-en="History" data-fr="Histoire">History</a></li>
+                <li><a href="next-concerts.html" data-en="Next Concerts" data-fr="Prochains Concerts">Next Concerts</a></li>
+                <li><a href="about.html" data-en="About Us" data-fr="À Propos de Nous">About Us</a></li>
+                <li><a href="events.html" data-en="Events" data-fr="Événements">Events</a></li>
+                <li><a href="contact.html" data-en="Contact" data-fr="Contact">Contact</a></li>
             </ul>
         </nav>
     </header>
-    <main>
+    <main id="main-content">
         <section id="about">
             <h2 data-en="About Us" data-fr="À Propos de Nous">About Us</h2>
             <p data-en="We are a passionate brass band dedicated to bringing music to our community." data-fr="Nous sommes un brass band passionné dédié à apporter de la musique à notre communauté.">We are a passionate brass band dedicated to bringing music to our community.</p>
@@ -46,15 +46,15 @@
             <p data-en="Enjoy our latest performances and moments captured." data-fr="Profitez de nos dernières performances et moments capturés.">Enjoy our latest performances and moments captured.</p>
             <div class="media-container">
                 <video controls>
-                    <source src="videos/video1.mp4" type="video/mp4">
+                    <source src="../videos/video1.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 <video controls>
-                    <source src="videos/video2.mp4" type="video/mp4">
+                    <source src="../videos/video2.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-                <img src="images/photo1.jpg" alt="Brass Band Photo 1">
-                <img src="images/photo2.jpg" alt="Brass Band Photo 2">
+                <img src="../images/photo1.jpg" alt="Brass Band Photo 1">
+                <img src="../images/photo2.jpg" alt="Brass Band Photo 2">
             </div>
         </section>
         <section id="social-media">
@@ -73,6 +73,22 @@
     <footer>
         <p data-en="&copy; 2023 Brass Band. All rights reserved." data-fr="&copy; 2023 Brass Band. Tous droits réservés.">&copy; 2023 Brass Band. All rights reserved.</p>
     </footer>
-    <script src="scripts/main.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/router.js"></script>
+    <script>
+        // Initialize router with routes
+        const routes = {
+            'index.html': 'index.html',
+            'latest-tunes.html': 'latest-tunes.html',
+            'history.html': 'history.html',
+            'next-concerts.html': 'next-concerts.html',
+            'about.html': 'about.html',
+            'events.html': 'events.html',
+            'contact.html': 'contact.html',
+            '404': '404.html'
+        };
+        
+        const router = new Router(routes);
+    </script>
 </body>
 </html>

@@ -1,15 +1,25 @@
-document.getElementById('theme-toggle').addEventListener('click', function() {
-    const isLightTheme = document.body.classList.toggle('light-theme');
-    document.querySelector('header').classList.toggle('light-theme');
-    document.querySelector('footer').classList.toggle('light-theme');
+// Function to set theme
+function setTheme(isLight) {
+    document.body.classList.toggle('light-theme', isLight);
+    document.querySelector('header').classList.toggle('light-theme', isLight);
+    document.querySelector('footer').classList.toggle('light-theme', isLight);
     document.querySelectorAll('nav ul li a').forEach(function(link) {
-        link.classList.toggle('light-theme');
+        link.classList.toggle('light-theme', isLight);
     });
-    document.getElementById('logo-dark').style.display = isLightTheme ? 'none' : 'block';
-    document.getElementById('logo-light').style.display = isLightTheme ? 'block' : 'none';
-    this.textContent = isLightTheme ? 'Dark Theme' : 'Light Theme';
-    document.querySelector('.theme-toggle').classList.toggle('light-theme');
-    document.querySelector('.language-toggle').classList.toggle('light-theme');
+    document.getElementById('logo-dark').style.display = isLight ? 'none' : 'block';
+    document.getElementById('logo-light').style.display = isLight ? 'block' : 'none';
+    document.getElementById('theme-toggle').textContent = isLight ? 'Dark Theme' : 'Light Theme';
+    document.querySelector('.theme-toggle').classList.toggle('light-theme', isLight);
+    document.querySelector('.language-toggle').classList.toggle('light-theme', isLight);
+    
+    // Store theme preference
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+}
+
+// Theme toggle event listener
+document.getElementById('theme-toggle').addEventListener('click', function() {
+    const isLightTheme = !document.body.classList.contains('light-theme');
+    setTheme(isLightTheme);
 });
 
 // Update language toggle event listener
@@ -34,12 +44,17 @@ function setLanguage(lang) {
     });
 }
 
-// Initialize language from stored preference
+// Initialize both theme and language when page loads
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize theme
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) {
+        setTheme(storedTheme === 'light');
+    }
+
+    // Initialize language
     const storedLang = localStorage.getItem('preferredLanguage');
     if (storedLang) {
         setLanguage(storedLang);
     }
-    
-    // ...existing theme initialization code...
 });
