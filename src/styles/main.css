@@ -1023,3 +1023,17 @@ body.light-theme .guest-musicians h3::after {
 /* ...existing code... */
 
 /* ...rest of existing styles... */
+
+/* ...existing code... */
+.guest-musicians {
+    margin-bottom: 3em; /* Ensure footer doesn't cut off guest musicians */
+}
+/* ...existing code... */
+
+/* ...existing code... */
+body.light-theme .timeline-content {
+    border: 2px solid #333;
+    background-color: #f9f9f9;
+    padding: 1em;
+}
+/* ...existing code... */
