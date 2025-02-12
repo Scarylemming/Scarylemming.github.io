@@ -1,0 +1,16 @@
+{
+  "name": "daily-wins-losses",
+  "version": "1.0.0",
+  "description": "A simple application to record daily wins and losses.",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0",
+    "fs": "0.0.1-security"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}

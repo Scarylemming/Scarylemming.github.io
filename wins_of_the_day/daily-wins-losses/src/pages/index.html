@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Wins and Losses</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Record Your Daily Wins and Losses</h1>
+        <form id="recordForm">
+            <label for="win">Win:</label>
+            <input type="text" id="win" name="win" required>
+            <button type="button" id="submitWin">Submit Win</button>
+            <label for="loss">Loss:</label>
+            <input type="text" id="loss" name="loss" required>
+            <button type="button" id="submitLoss">Submit Loss</button>
+        </form>
+        <div id="dateSelector">
+            <label for="recordDate">Select Date:</label>
+            <input type="date" id="recordDate">
+            <button type="button" id="loadRecords">Load Records</button>
+        </div>
+        <div id="results">
+            <h2>Your Records</h2>
+            <ul id="recordList"></ul>
+        </div>
+    </div>
+    <script src="../js/app.js"></script>
+</body>
+</html>
